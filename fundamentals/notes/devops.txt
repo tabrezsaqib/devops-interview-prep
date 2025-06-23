@@ -1,0 +1,121 @@
+Day 1-2: DevOps Lifecycle & Agile
+Study Focus: DevOps principles (CI/CD, IaC, feedback loops, collaboration), Agile vs. DevOps, foundational reading, and lifecycle diagramming.
+
+DevOps Principles
+DevOps is built on a foundation of collaboration, automation, and continuous improvement. The primary goal is to break down silos between development and operations, enabling teams to deliver software faster and more reliably. Key principles include:
+
+Collaboration: Dev and Ops teams work as a single unit, sharing feedback and responsibilities throughout the software lifecycle.
+
+Automation: Automate as much of the software development lifecycle as possible, especially build, test, and deploy processes (the backbone of CI/CD).
+
+Continuous Integration & Continuous Delivery (CI/CD): Regularly integrate code changes, run automated tests, and deploy to production frequently and reliably.
+
+Infrastructure as Code (IaC): Manage and provision infrastructure using code (e.g., Terraform, CloudFormation), enabling reproducibility and version control.
+
+Feedback Loops: Use real-time monitoring and rapid deployment to collect and respond to user feedback, driving continuous improvement.
+
+Customer-Centric Action: Develop products around user needs, using feedback to guide priorities and improvements.
+
+Agile vs. DevOps: How They Complement Each Other
+Agile is an iterative approach to software development focused on customer feedback, adaptability, and delivering small, incremental improvements (sprints).
+DevOps extends Agile principles beyond development to include operations, emphasizing automation, continuous delivery, and end-to-end responsibility for software in production.
+
+How They Work Together:
+
+Agile teams iterate rapidly, delivering new features and improvements.
+
+DevOps teams automate integration, testing, deployment, and monitoring, ensuring that Agile increments are quickly and reliably delivered to users.
+
+Both aim to shorten feedback loops, increase collaboration, and improve customer satisfaction.
+
+Aspect	Agile	DevOps
+Focus	Iterative software development	End-to-end software delivery and operations
+Key Practices	Sprints, stand-ups, user stories	CI/CD, automation, monitoring, IaC
+Feedback Loops	Customer/stakeholder reviews	Automated monitoring, real-time user feedback
+Team Structure	Cross-functional, flexible	Unified Dev + Ops, automation-focused
+Essential Reading
+The DevOps Handbook
+The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations by Gene Kim, Jez Humble, Patrick Debois, and John Willis is a foundational reference.
+
+“High performers using DevOps principles, such as Google, Amazon, Facebook, Etsy, and Netflix, are routinely and reliably deploying code into production hundreds, or even thousands, of times per day... The DevOps Handbook shows leaders how to integrate Product Management, Development, QA, IT Operations, and Information Security to elevate your company and win in the marketplace.”
+
+Linux Foundation DevOps Course:
+Offers a comprehensive introduction to DevOps and SRE practices, toolsets, and real-world applications.
+
+Exercise: Diagram a Typical DevOps Lifecycle
+DevOps Lifecycle Infinity Loop
+A standard DevOps lifecycle is visualized as an infinity loop, illustrating the continuous, iterative nature of modern software delivery. The phases typically include:
+
+Plan: Define goals, requirements, and workflow collaboratively.
+
+Code: Develop features and fixes using version control.
+
+Build: Compile code, create artifacts, and prepare for testing.
+
+Test: Run automated/manual tests for quality assurance.
+
+Release: Prepare for deployment, final QA, and scheduling.
+
+Deploy: Move code to production using automated tools.
+
+Operate: Maintain and support the application in production.
+
+Monitor: Continuously track performance, gather feedback, and inform improvements.
+
+Tip: Some models add phases like "Continuous Feedback" to emphasize the importance of learning and iteration.
+
+Sample DevOps Lifecycle Diagram (Infinity Loop)
+text
+         +--------+             +--------+
+         |        |   Plan      |        |
+         |        +<----------->+        |
+         | Code   |             | Build  |
+         +--------+             +--------+
+             ^                      |
+             |                      v
+         +--------+             +--------+
+         |        |   Test      |        |
+         | Test   +<----------->+ Release|
+         +--------+             +--------+
+             ^                      |
+             |                      v
+         +--------+             +--------+
+         |        |   Deploy    |        |
+         | Deploy +<----------->+ Operate|
+         +--------+             +--------+
+             ^                      |
+             |                      v
+         +--------+             +--------+
+         |        |   Monitor   |        |
+         |Monitor +<----------->+ Plan   |
+         +--------+             +--------+
+Or visually as an infinity loop (see  for a graphical version):
+
+text
+Plan → Code → Build → Test → Release → Deploy → Operate → Monitor
+        ↖---------------------------------------------↗
+Summary Table: DevOps Lifecycle Phases
+Phase	Description
+Plan	Define requirements, goals, and workflow collaboratively
+Code	Develop and version software
+Build	Compile and package code for deployment
+Test	Automated and manual testing for quality assurance
+Release	Final QA and preparation for deployment
+Deploy	Move code to production environment
+Operate	Maintain, monitor, and support software in production
+Monitor	Track performance, gather feedback, and inform continuous improvement
+References
+The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations by Gene Kim et al.
+
+Atlassian: What is DevOps?
+
+BrowserStack: DevOps Lifecycle
+
+ManageEngine: DevOps Lifecycle and Pipeline
+
+Linux Foundation DevOps IT Professional Program
+
+AWS: Agile vs. DevOps
+
+Exercise:
+Draw the DevOps infinity loop for a sample application, labeling each phase and listing the key tools and practices you would use at each stage (e.g., Git for Code, Jenkins for Build, Selenium for Test, Kubernetes for Deploy, Prometheus for Monitor).
