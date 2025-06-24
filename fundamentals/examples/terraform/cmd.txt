@@ -1,0 +1,4 @@
+terraform init
+terraform apply -var="instance_name=DevServer"
+
+terraform plan -detailed-exitcode
