@@ -1,0 +1,24 @@
+spec:
+  containers:
+    - name: {{ .Chart.Name }}
+      image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+      imagePullPolicy: {{ .Values.image.pullPolicy }}
+      volumes:
+        - name: log-volume
+          persistentVolumeClaim:
+            claimName: app-logs-pvc
+      volumeMounts:
+              - name: log-volume
+                mountPath: {{ .Values.persistence.mountPath }}
+
+            volumes:
+            - name: log-volume
+              persistentVolumeClaim:
+                claimName: log-pvc
+      readinessProbe:
+        httpGet:
+          path: /
+          port: 5000
+        initialDelaySeconds: 5
+        periodSeconds: 5
+

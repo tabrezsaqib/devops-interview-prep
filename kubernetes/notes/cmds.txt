@@ -1,0 +1,5 @@
+kubectl apply -f nginx-deployment.yaml
+kubectl apply -f nginx-service.yaml
+
+kubectl get pods -l app=nginx
+kubectl get svc nginx-service

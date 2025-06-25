@@ -1,0 +1,26 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Docker
+      uses: docker/setup-buildx-action@v2
+
+    - name: Build and push image
+      run: |
+        docker build -t myuser/capstone-app:${{ github.sha }} .
+        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u myuser --password-stdin
+        docker push myuser/capstone-app:${{ github.sha }}
+
+    - name: Deploy to K8s
+      run: |
+        kubectl set image deployment/capstone-app app=myuser/capstone-app:${{ github.sha }}

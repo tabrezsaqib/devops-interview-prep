@@ -1,0 +1,5 @@
+docker-compose up --build 
+
+Access Flask app at http://localhost:5000/ which will show Postgres version.
+
+docker-compose down --volumes

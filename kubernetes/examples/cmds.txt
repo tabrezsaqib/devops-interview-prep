@@ -1,0 +1,11 @@
+kubectl apply -f configmap.yaml
+kubectl apply -f secret.yaml
+kubectl apply -f deployment.yaml
+
+helm install myapp ./mychart --set replicaCount=3
+# or
+helm install myapp ./mychart -f prod-values.yaml
+
+helm create flaskchart
+
+helm dependency update

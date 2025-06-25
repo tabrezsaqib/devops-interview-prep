@@ -1,0 +1,15 @@
+mkdir monitoring && cd monitoring
+docker-compose up -d grafana
+
+docker-compose up -d
+
+docker ps
+
+prom/prometheus running on 9090
+prom/node-exporter running on 9100
+Visit: http://localhost:9090
+
+docker-compose up -d
+
+docker-compose down
+docker-compose up --build -d

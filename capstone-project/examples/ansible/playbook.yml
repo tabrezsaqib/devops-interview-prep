@@ -1,0 +1,9 @@
+---
+- hosts: app_servers
+  become: true
+  tasks:
+    - name: Install htop
+      apt:
+        name: htop
+        state: present
+        update_cache: yes

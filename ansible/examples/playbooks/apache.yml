@@ -1,0 +1,24 @@
+---
+- name: Deploy Apache
+  hosts: webservers
+  become: yes
+  roles:
+    - apache
+  tasks:
+    - name: Install Apache
+      apt:
+        name: apache2
+        update_cache: yes
+        state: present
+
+    - name: Start Apache
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+    
+    - name: Echo Proxy
+      debug:
+        msg: "User is {{ proxy_user }}"
+
+

@@ -1,0 +1,8 @@
+- name: Deploy App
+  hosts: app_servers
+  vars_files:
+    - secrets.yml  # Encrypted file
+  tasks:
+    - name: Use DB Password
+      debug:
+        msg: "DB pass: {{ db_password }}"

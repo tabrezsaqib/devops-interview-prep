@@ -1,0 +1,5 @@
+kubectl apply -f demo-app.yaml
+kubectl apply -f demo-ingress.yaml
+kubectl apply -f networkpolicy.yaml
+
+kubectl create ns demo

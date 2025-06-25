@@ -1,0 +1,63 @@
+kubectl apply -f pv.yaml
+
+helm create myapp
+
+helm upgrade --install myapp ./myapp
+
+kubectl get pods
+
+kubectl get pvc
+
+kubectl exec -it <pod-name> -- ls /app/logs
+
+docker build -t yourdockerhubusername/flask-log-app:latest .
+docker push yourdockerhubusername/flask-log-app:latest
+
+helm create helm-chart
+cd helm-chart
+
+cd integration-project/helm-chart
+kubectl create namespace flask
+helm install flask-log ./ --namespace flask
+
+kubectl get pods -n flask
+kubectl get svc -n flask
+
+# Get Node IP + NodePort
+kubectl get svc -n flask -o wide
+
+http://<NodeIP>:<NodePort>
+
+kubectl exec -n flask <pod-name> -- cat /var/log/flaskapp/app.log
+
+INFO:root:Home endpoint was hit.
+
+Add 127.0.0.1 flask.local to your /etc/hosts.
+
+kubectl label ns ingress-nginx name=ingress-nginx
+
+helm registry login ghcr.io  # or cr.azure.com, etc.
+
+
+cd integration-project/helm-chart
+helm package .
+
+helm push flask-log-app-0.1.0.tgz oci://ghcr.io/<your-username>/charts
+
+
+helm pull oci://ghcr.io/<your-username>/charts/flask-log-app --version 0.1.0
+helm install flask-prod ./flask-log-app
+
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+
+# Deploy Prometheus
+helm install prometheus prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace
+
+# Access Grafana:
+kubectl port-forward svc/prometheus-grafana -n monitoring 3000:80
+
+✅ Default Grafana login: admin/prom-operator
+
+pip install prometheus_flask_exporter

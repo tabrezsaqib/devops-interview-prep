@@ -1,0 +1,56 @@
+az group create — create resource groups.
+az vm create — create virtual machines.
+az vm list — list VMs.
+az vm delete — delete VMs.
+
+# Create Resource Group
+az group create --name MyResourceGroup --location eastus
+
+# Login
+az login
+
+# List Subscriptions
+az account list --output table
+
+# Set subscription
+az account set --subscription "<subscription-name>"
+
+# Step 1: Create Resource Group
+az group create --name DevRG --location eastus
+
+# Step 2: Create VM
+az vm create \
+  --resource-group DevRG \
+  --name DevVM01 \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --generate-ssh-keys
+
+# Step 3: Open port 22 (SSH)
+az vm open-port --port 22 --resource-group DevRG --name DevVM01
+
+#!/bin/bash
+
+az group create --name TestRG --location eastus
+
+az vm create \
+  --resource-group TestRG \
+  --name WebVM \
+  --image UbuntuLTS \
+  --admin-username devadmin \
+  --generate-ssh-keys
+
+az vm open-port --resource-group TestRG --name WebVM --port 22
+az vm open-port --resource-group TestRG --name WebVM --port 80
+az vm open-port --resource-group TestRG --name WebVM --port 443
+
+# Get Public IP
+az vm show -d -g TestRG -n WebVM --query publicIps -o tsv
+
+az vm open-port --port 22 --resource-group MyResourceGroup --name MyLinuxVM
+
+
+az vm list -d -g MyResourceGroup -o table
+
+ssh azureuser@<public-ip-address>
+

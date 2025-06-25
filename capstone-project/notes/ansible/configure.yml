@@ -1,0 +1,14 @@
+- hosts: k8s_nodes
+  become: yes
+  tasks:
+    - name: Install monitoring agent (example)
+      apt:
+        name: prometheus-node-exporter
+        state: present
+        update_cache: yes
+
+    - name: Ensure prometheus-node-exporter is running
+      service:
+        name: prometheus-node-exporter
+        state: started
+        enabled: yes

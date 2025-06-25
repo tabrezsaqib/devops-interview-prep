@@ -1,0 +1,38 @@
+reverse_string "hello"
+is_palindrome "madam"
+remove_duplicates "banana"
+count_vowels_consonants "Hello World"
+are_anagrams "listen" "silent"
+first_non_repeating "swiss"
+char_frequency "hello"
+is_rotation "abc" "cab"
+replace_chars "hello" "l" "x"
+all_unique "abcdef"
+longest_unique_substring "abcabcbb"
+reverse_words "hello world"
+title_case "hello world"
+
+is_prime 17
+generate_primes 5
+factorial 5
+is_armstrong 153
+is_perfect 28
+reverse_number 1234
+gcd 12 18
+lcm 12 18
+swap_numbers 5 7
+sum_of_digits 12345
+decimal_to_binary 10
+count_digits 12345
+
+find_min_max 3 5 1 8 2
+reverse_array 1 2 3 4 5
+remove_duplicates_array 1 2 2 3 4 4 5
+find_duplicates_array 1 2 2 3 4 4 5
+is_sorted 1 2 3 4 5
+bubble_sort 5 2 9 1 5 6
+
+factorial_rec 5
+
+pyramid 5
+hollow_square 5

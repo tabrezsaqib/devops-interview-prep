@@ -1,0 +1,2 @@
+proxy_user: admin
+proxy_pass: "{{ vault_password }}"

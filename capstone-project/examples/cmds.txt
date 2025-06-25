@@ -1,0 +1,11 @@
+terraform init
+terraform apply
+
+docker build -t myuser/capstone-app:v1 .
+docker push myuser/capstone-app:v1
+
+ansible-playbook -i inventory.ini playbook.yml
+
+docker run -d -p 9090:9090 \
+  -v $PWD/prometheus.yml:/etc/prometheus/prometheus.yml \
+  prom/prometheus

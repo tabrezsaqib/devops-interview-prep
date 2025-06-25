@@ -1,0 +1,10 @@
+groups:
+  - name: flask_alerts
+    rules:
+      - alert: HighRequestRate
+        expr: rate(flask_request_count[1m]) > 10
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High traffic to Flask app
